@@ -1,0 +1,10 @@
+
+<suite name="ParallelSuite" parallel="classes" thread-count="3">
+<test name="ParallelTestExecution">
+   <classes>
+        <class name="Testng_package.pt"/>
+        <class name="Testng_package.ebay_fox"/>
+         <class name="Testng_package.ebay_ed"/>
+      </classes>
+</test>
+</suite>
