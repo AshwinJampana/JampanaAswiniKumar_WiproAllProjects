@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Maven_practice_project</groupId>
+  <artifactId>Maven_practice_project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mockito.version>5.11.0</mockito.version>
+    <testng.version>7.9.0</testng.version>
+    <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+    <byte-buddy.version>1.14.15</byte-buddy.version>
+    <selenium.version>4.20.0</selenium.version>
+    <webdrivermanager.version>6.2.0</webdrivermanager.version>
+    <slf4j.version>2.0.12</slf4j.version>
+  </properties>
+  
+  <dependencies>
+    <!-- TestNG -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Mockito Core -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Mockito Inline for static mocking -->
+
+    
+    <!-- Byte Buddy (required for Mockito) -->
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <version>${byte-buddy.version}</version>
+    </dependency>
+    
+    <!-- Selenium WebDriver -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+    
+    <!-- WebDriverManager for automatic driver management -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
+    </dependency>
+    
+    <!-- SLF4J Simple for logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <!-- Compiler Plugin for Java 21 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>21</source>
+          <target>21</target>
+          <compilerArgs>
+            <arg>--enable-preview</arg>
+            <arg>-Xlint:preview</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      
+      <!-- Surefire Plugin for TestNG -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+          <argLine>
+            --add-opens java.base/java.lang=ALL-UNNAMED
+            --add-opens java.base/java.util=ALL-UNNAMED
+            -Dnet.bytebuddy.experimental=true
+            --add-opens java.base/java.net=ALL-UNNAMED
+            --add-opens java.base/java.security=ALL-UNNAMED
+          </argLine>
+          <useSystemClassLoader>false</useSystemClassLoader>
+          <systemPropertyVariables>
+            <net.bytebuddy.experimental>true</net.bytebuddy.experimental>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+      
+      <!-- Exec Plugin for running main class -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <mainClass>Hospital_proj.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-25T17:31:38 IST" name="test" finished-at="2025-08-25T17:31:49 IST" duration-ms="10845">
+    <groups>
+    </groups>
+    <test started-at="2025-08-25T17:31:38 IST" name="TestJenkins" finished-at="2025-08-25T17:31:49 IST" duration-ms="10845">
+      <class name="Jenkins_package.NewTest1">
+        <test-method signature="f()[pri:0, instance:Jenkins_package.NewTest1@1139b2f3]" started-at="2025-08-25T17:31:44 IST" name="f" finished-at="2025-08-25T17:31:49 IST" duration-ms="5418" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+      </class> <!-- Jenkins_package.NewTest1 -->
+      <class name="Jenkins_package.NewTest">
+        <test-method signature="f()[pri:0, instance:Jenkins_package.NewTest@9353778]" started-at="2025-08-25T17:31:38 IST" name="f" finished-at="2025-08-25T17:31:44 IST" duration-ms="5381" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+      </class> <!-- Jenkins_package.NewTest -->
+    </test> <!-- TestJenkins -->
+  </suite> <!-- test -->
+</testng-results>

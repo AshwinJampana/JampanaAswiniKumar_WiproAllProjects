@@ -1,0 +1,8 @@
+<suite name="test">
+<test name="TestJenkins">
+<classes>
+<class name="Jenkins_package.NewTest"/>
+<class name="Jenkins_package.NewTest1"/>
+</classes>
+</test>
+</suite>
